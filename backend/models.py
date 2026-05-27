@@ -23,6 +23,7 @@ class User(Base):
     id = Column(String, primary_key=True, default=generate_uuid, index=True)
     username = Column(String, unique=True, index=True)
     email = Column(String, unique=True, index=True)
+    password = Column(String) # Hashed password
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
 
     resumes = relationship("Resume", back_populates="user")

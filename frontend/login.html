@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | AI Interview Pro</title>
+    <meta name="description" content="Login to AI Interview Pro.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; color: inherit;">
+                <span class="gradient-text">AI</span> Interview Pro
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="interview.html">Interview</a>
+            <a href="coding.html">Coding</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="glass-card auth-card">
+            <h2 id="auth-title">Welcome Back</h2>
+            <p id="auth-subtitle">Login to continue your preparation</p>
+            
+            <form id="auth-form">
+                <div class="form-group hidden" id="username-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" class="form-control" placeholder="johndoe">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="you@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+                </div>
+
+                <div id="auth-error" class="hidden" style="color: #ff5f56; font-size: 0.9rem; margin-bottom: 1rem;"></div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;" id="auth-btn">Login</button>
+            </form>
+            
+            <div class="auth-links">
+                <p id="toggle-text">Don't have an account? <a href="#" id="toggle-auth">Sign up</a></p>
+                <p id="forgot-password"><a href="#">Forgot password?</a></p>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

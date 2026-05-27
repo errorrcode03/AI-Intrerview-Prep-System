@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultCard = document.getElementById('analysis-result');
     const API_BASE = 'http://localhost:8000'; // FastAPI default port
 
-    // Mock User ID for now until Auth is implemented
-    const mockUserId = "test-user-" + Math.floor(Math.random() * 1000);
+    // Use authenticated user ID, redirect if not found for actions that require it
+    let userId = localStorage.getItem('user_id');
 
     // Drag and drop handlers
     dropZone.addEventListener('dragover', (e) => {
@@ -48,8 +48,14 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('file', file);
         // We append user_id as query param since it's defined that way in FastAPI
         
+        if (!userId) {
+            alert('Please login first to upload a resume.');
+            window.location.href = 'login.html';
+            return;
+        }
+        
         try {
-            const response = await fetch(`${API_BASE}/upload_resume?user_id=${mockUserId}`, {
+            const response = await fetch(`${API_BASE}/upload_resume?user_id=${userId}`, {
                 method: 'POST',
                 body: formData
             });

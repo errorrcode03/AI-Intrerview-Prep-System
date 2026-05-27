@@ -29,6 +29,39 @@ os.makedirs(UPLOAD_DIR, exist_ok=True)
 def read_root():
     return {"message": "Welcome to AI Interview Preparation System API"}
 
+@app.post("/register", response_model=schemas.UserResponse)
+def register(user: schemas.UserCreate, db: Session = Depends(get_db)):
+    db_user = db.query(models.User).filter(models.User.email == user.email).first()
+    if db_user:
+        raise HTTPException(status_code=400, detail="Email already registered")
+    
+    # In a real app, hash the password here
+    new_user = models.User(
+        username=user.username,
+        email=user.email,
+        password=user.password # Mock: storing plain text for prototype
+    )
+    db.add(new_user)
+    db.commit()
+    db.refresh(new_user)
+    return new_user
+
+@app.post("/login")
+def login(user: schemas.UserLogin, db: Session = Depends(get_db)):
+    db_user = db.query(models.User).filter(models.User.email == user.email).first()
+    if not db_user:
+        raise HTTPException(status_code=400, detail="Invalid email or password")
+    
+    # In a real app, verify hashed password here
+    if db_user.password != user.password:
+        raise HTTPException(status_code=400, detail="Invalid email or password")
+        
+    return {
+        "message": "Login successful",
+        "user_id": db_user.id,
+        "username": db_user.username
+    }
+
 @app.post("/upload_resume", response_model=schemas.ResumeResponse)
 async def upload_resume(user_id: str, file: UploadFile = File(...), db: Session = Depends(get_db)):
     if not file.filename.endswith(('.pdf', '.docx')):
