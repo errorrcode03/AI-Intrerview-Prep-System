@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Interview | AI Interview Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/coding.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span class="gradient-text">AI</span> Interview Pro
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="interview.html">Interview</a>
+            <a href="coding.html" class="active">Coding</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+            <div class="interview-status">
+                <span class="dot yellow"></span> Live: DSA Round
+            </div>
+            <a href="index.html" class="btn btn-secondary">End Interview</a>
+        </div>
+    </nav>
+
+    <main class="coding-layout">
+        <!-- Left Panel: Problem Description -->
+        <div class="problem-panel glass-card">
+            <div class="problem-header">
+                <h2 id="problem-title">Two Sum</h2>
+                <span class="difficulty easy">Easy</span>
+            </div>
+            <div class="problem-content" id="problem-description">
+                <p>Given an array of integers <code>nums</code> and an integer <code>target</code>, return indices of the two numbers such that they add up to <code>target</code>.</p>
+                <p>You may assume that each input would have <strong>exactly one solution</strong>, and you may not use the same element twice.</p>
+                <p>You can return the answer in any order.</p>
+                
+                <h3>Example 1:</h3>
+                <pre><strong>Input:</strong> nums = [2,7,11,15], target = 9
+<strong>Output:</strong> [0,1]
+<strong>Explanation:</strong> Because nums[0] + nums[1] == 9, we return [0, 1].</pre>
+            </div>
+            
+            <div class="ai-feedback-panel hidden" id="ai-feedback-panel">
+                <h3>AI Analysis Result</h3>
+                <div class="feedback-status" id="feedback-status">Processing...</div>
+                <div class="feedback-stats">
+                    <strong>Time Complexity:</strong> <span id="time-complexity">O(?)</span>
+                </div>
+                <p id="ai-critique" class="ai-critique">Awaiting submission...</p>
+                
+                <div class="console-output">
+                    <strong>Console Output:</strong>
+                    <pre id="console-output-text">...</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel: IDE -->
+        <div class="ide-panel glass-card">
+            <div class="ide-toolbar">
+                <select id="language-select" class="lang-select">
+                    <option value="71" selected>Python (3.8.1)</option>
+                    <option value="54">C++ (GCC 9.2.0)</option>
+                    <option value="62">Java (OpenJDK 13.0.1)</option>
+                    <option value="63">JavaScript (Node.js 12.14.0)</option>
+                </select>
+                <div class="ide-actions">
+                    <button class="btn btn-secondary" id="run-code-btn">Run Code</button>
+                    <button class="btn btn-primary" id="submit-code-btn">Submit Code</button>
+                </div>
+            </div>
+            
+            <!-- Monaco Editor Container -->
+            <div id="monaco-editor" class="editor-container"></div>
+        </div>
+    </main>
+
+    <!-- Load Monaco Editor from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.js"></script>
+    <script src="js/coding.js"></script>
+</body>
+</html>

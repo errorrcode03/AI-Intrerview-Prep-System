@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interview Pro | Master Your Next Interview</title>
+    <meta name="description" content="AI-powered interview preparation platform with resume analysis and mock interviews.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span class="gradient-text">AI</span> Interview Pro
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="interview.html">Interview</a>
+            <a href="coding.html">Coding</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+        <button class="btn btn-primary" onclick="alert('Login coming soon!')">Get Started</button>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Ace Your Next Interview with <span class="gradient-text">AI Precision</span></h1>
+                <p class="hero-subtitle">Practice HR, Technical, and DSA rounds with our advanced AI agents. Get instant feedback and ATS score for your resume.</p>
+                <div class="hero-actions">
+                    <a href="#resume" class="btn btn-primary btn-large">Upload Resume</a>
+                    <a href="#features" class="btn btn-secondary btn-large">Explore Features</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <!-- A decorative element to represent AI / tech -->
+                <div class="glass-card decorative-card">
+                    <div class="card-header">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="card-body">
+                        <p class="code-line">Analyzing candidate profile...</p>
+                        <p class="code-line success">ATS Score: 92% - Strong Match</p>
+                        <p class="code-line">Generating tailored HR questions...</p>
+                        <p class="code-line blink">Waiting for response...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resume" class="section resume-section">
+            <h2 class="section-title">Resume Analyzer</h2>
+            <div class="upload-container glass-card">
+                <div class="upload-zone" id="drop-zone">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="upload-icon"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    <h3>Drag & Drop your Resume</h3>
+                    <p>Supported formats: PDF, DOCX (Max 5MB)</p>
+                    <input type="file" id="resume-upload" accept=".pdf,.docx" hidden>
+                    <button class="btn btn-primary" onclick="document.getElementById('resume-upload').click()">Browse Files</button>
+                </div>
+                <div id="upload-status" class="status-message hidden">
+                    <div class="spinner"></div>
+                    <p>Analyzing resume with AI...</p>
+                </div>
+                <div id="analysis-result" class="result-card hidden">
+                    <!-- Results will be injected here via JS -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
